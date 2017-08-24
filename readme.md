@@ -5,10 +5,12 @@ This is a simplified version of [@adriaanmeuris's example](https://github.com/Au
 
 It shows how Mongoose can gets in a state where callbacks stop happening.
 
+It makes a very slow query, then shows that future queries never call back.
+
 
 ### Instructions
 
-You may need to tweak the timeout setting. I had to set it to **10 minutes** to reproduce the error.
+You may need to tweak the duration of the long query. I had to set it to **10 minutes** to reproduce the error consistently.
 
     const LONG_QUERY_DURATION_IN_MS = 10 * 60 * 1000;
 
@@ -16,7 +18,7 @@ I'm running it on `MacOS 10.12.6`, `Node v6.10.2`, `Mongoose 4.11.7`, `MongoDB 3
 
 ### Output
 
-When I run this on my mac, I get the following output:
+I get the following output:
 
     > node run.js
     6) Database connecting...
